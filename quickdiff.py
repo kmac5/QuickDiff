@@ -1,7 +1,8 @@
 import sys
 import subprocess
 
-from PyQt5 import QtCore
+from PyQt5.QtCore import (Qt,
+                          QSize)
 from PyQt5.QtWidgets import (QMainWindow,
                              QLabel,
                              QLineEdit,
@@ -37,9 +38,9 @@ class FileEdit(QLineEdit):
 class MainWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
-        self.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)
+        self.setWindowFlags(Qt.WindowStaysOnTopHint)
 
-        self.setMinimumSize(QtCore.QSize(620, 180))
+        self.setMinimumSize(QSize(620, 180))
         self.setWindowTitle("QuickDiff")
 
         self.nameLabel1 = QLabel(self)
@@ -80,15 +81,15 @@ class MainWindow(QMainWindow):
         self.line2.setText(line1)
 
     def click_method_toggle(self):
-        on = bool(self.windowFlags() & QtCore.Qt.WindowStaysOnTopHint)
-        self.setWindowFlag(QtCore.Qt.WindowStaysOnTopHint, not on)
+        on = bool(self.windowFlags() & Qt.WindowStaysOnTopHint)
+        self.setWindowFlag(Qt.WindowStaysOnTopHint, not on)
         self.show()
 
     def click_method_diff(self):
         line1 = self.line1.text()
         line2 = self.line2.text()
         subprocess.Popen(['gvim', '-d', line1, line2],
-                creationflags=subprocess.CREATE_NEW_CONSOLE)
+                         creationflags=subprocess.CREATE_NEW_CONSOLE)
 
 
 if __name__ == "__main__":
