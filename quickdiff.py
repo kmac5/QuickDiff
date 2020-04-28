@@ -87,7 +87,8 @@ class MainWindow(QMainWindow):
     def clickMethodDiff(self):
         line1 = self.line1.text()
         line2 = self.line2.text()
-        subprocess.run(['gvim', '-d', line1, line2])
+        subprocess.Popen(['gvim', '-d', line1, line2],
+                creationflags=subprocess.CREATE_NEW_CONSOLE)
 
 
 if __name__ == "__main__":
