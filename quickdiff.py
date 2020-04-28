@@ -1,7 +1,7 @@
 import sys
 import subprocess
 
-from PyQt5 import QtWidgets, QtCore
+from PyQt5 import QtCore
 from PyQt5.QtWidgets import (QMainWindow,
                              QLabel,
                              QLineEdit,
@@ -60,17 +60,17 @@ class MainWindow(QMainWindow):
 
         pybutton = QPushButton('Swap Files', self)
         pybutton.clicked.connect(self.click_method_swap)
-        pybutton.resize(162,32)
+        pybutton.resize(162, 32)
         pybutton.move(80, 100)
 
         pybutton = QPushButton('Toggle On Top', self)
         pybutton.clicked.connect(self.click_method_toggle)
-        pybutton.resize(162,32)
+        pybutton.resize(162, 32)
         pybutton.move(250, 100)
 
         pybutton = QPushButton('Diff', self)
         pybutton.clicked.connect(self.click_method_diff)
-        pybutton.resize(162,32)
+        pybutton.resize(162, 32)
         pybutton.move(420, 100)
 
     def click_method_swap(self):
@@ -92,7 +92,7 @@ class MainWindow(QMainWindow):
 
 
 if __name__ == "__main__":
-    app = QtWidgets.QApplication(sys.argv)
+    app = QApplication(sys.argv)
     mainWin = MainWindow()
     mainWin.show()
     sys.exit(app.exec_())
