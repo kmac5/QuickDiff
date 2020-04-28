@@ -2,7 +2,7 @@ QuickDiff
 
 A Qt wrapper around 'gvim -d' allowing the user to quickly drag files into the UI and launch a diff.
 
-Features two conveniece buttons:
+Features two convenience buttons:
 
 * 'Swap' simply swaps the file order in the diff
 
