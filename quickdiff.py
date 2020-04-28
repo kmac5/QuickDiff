@@ -39,8 +39,8 @@ class MainWindow(QMainWindow):
         QMainWindow.__init__(self)
         self.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)
 
-        self.setMinimumSize(QtCore.QSize(620, 180))    
-        self.setWindowTitle("QuickDiff") 
+        self.setMinimumSize(QtCore.QSize(620, 180))
+        self.setWindowTitle("QuickDiff")
 
         self.nameLabel1 = QLabel(self)
         self.nameLabel1.setText('File 1:')
@@ -59,32 +59,32 @@ class MainWindow(QMainWindow):
         self.nameLabel2.move(20, 60)
 
         pybutton = QPushButton('Swap Files', self)
-        pybutton.clicked.connect(self.clickMethodSwap)
+        pybutton.clicked.connect(self.click_method_swap)
         pybutton.resize(162,32)
-        pybutton.move(80, 100)        
+        pybutton.move(80, 100)
 
         pybutton = QPushButton('Toggle On Top', self)
-        pybutton.clicked.connect(self.clickMethodToggle)
+        pybutton.clicked.connect(self.click_method_toggle)
         pybutton.resize(162,32)
-        pybutton.move(250, 100)        
+        pybutton.move(250, 100)
 
         pybutton = QPushButton('Diff', self)
-        pybutton.clicked.connect(self.clickMethodDiff)
+        pybutton.clicked.connect(self.click_method_diff)
         pybutton.resize(162,32)
-        pybutton.move(420, 100)        
+        pybutton.move(420, 100)
 
-    def clickMethodSwap(self):
+    def click_method_swap(self):
         line1 = self.line1.text()
         line2 = self.line2.text()
         self.line1.setText(line2)
         self.line2.setText(line1)
 
-    def clickMethodToggle(self):
+    def click_method_toggle(self):
         on = bool(self.windowFlags() & QtCore.Qt.WindowStaysOnTopHint)
         self.setWindowFlag(QtCore.Qt.WindowStaysOnTopHint, not on)
         self.show()
 
-    def clickMethodDiff(self):
+    def click_method_diff(self):
         line1 = self.line1.text()
         line2 = self.line2.text()
         subprocess.Popen(['gvim', '-d', line1, line2],
