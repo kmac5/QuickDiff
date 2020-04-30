@@ -1,6 +1,6 @@
 QuickDiff
 
-A Qt wrapper around 'gvim -d' allowing the user to quickly drag files into the UI and launch a diff.
+A Python 3 and PyQt5 wrapper around 'gvim -d' allowing the user to quickly drag files into the UI and launch a diff.
 
 Features three convenience buttons:
 
@@ -8,6 +8,6 @@ Features three convenience buttons:
 
 * 'Toggle On Top' allows the user to toggle the window's 'Stay on top' behavior when needed.  The default state is 'on'.
 
-* 'Diff' launches gvim with the current diff.  Assumes gvim is in your system PATH.
+* 'Diff' launches gvim with the current selected files.  Assumes gvim is in your system PATH.
 
 Should be cross-platform but so far only tested on Windows 10.
